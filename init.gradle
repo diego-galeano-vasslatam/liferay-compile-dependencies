@@ -1,0 +1,27 @@
+initscript {
+    repositories {
+        maven {
+            url 'https://repository-cdn.liferay.com/nexus/content/groups/public'
+        }
+    }
+
+    dependencies {
+        classpath group: 'com.liferay', name: 'com.liferay.gradle.plugins', version: '11.0.74'
+        classpath group: 'com.liferay', name: 'com.liferay.gradle.plugins.target.platform', version: '2.1.9'
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+
+    apply plugin: com.liferay.gradle.plugins.LiferayPlugin
+    apply plugin: com.liferay.gradle.plugins.target.platform.TargetPlatformPlugin
+
+    dependencies {
+        targetPlatformBoms group: 'com.liferay.portal', name: 'release.dxp.bom', version: '7.4.13.u47'
+        targetPlatformBoms group: 'com.liferay.portal', name: 'release.dxp.bom.compile.only', version: '7.4.13.u47'
+        targetPlatformBoms group: 'com.liferay.portal', name: 'release.dxp.bom.third.party', version: '7.4.13.u47'
+    }
+}
