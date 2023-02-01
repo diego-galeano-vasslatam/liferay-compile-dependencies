@@ -14,8 +14,11 @@ initscript {
 allprojects {
     repositories {
         mavenCentral()
+        maven {
+            url 'http://192.168.0.3:8081/repository/vass-lfr-repository/'
+        }
     }
-
+    apply plugin: 'maven-publish'
     apply plugin: com.liferay.gradle.plugins.LiferayPlugin
     apply plugin: com.liferay.gradle.plugins.target.platform.TargetPlatformPlugin
 
