@@ -15,7 +15,11 @@ allprojects {
     repositories {
         mavenCentral()
         maven {
-            url 'http://192.168.0.3:8081/repository/vass-lfr-repository/'
+            url "$repositoryUrl"
+            credentials {
+                username = "$repoUser"
+                password = "$repoPassword"
+            }
         }
     }
     apply plugin: 'maven-publish'
